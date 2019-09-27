@@ -1,6 +1,10 @@
 cmake_minimum_required(VERSION 2.8)
 project(cilantro)
 
+find_package(catkin REQUIRED)
+
+catkin_package(INCLUDE_DIRS include include/cilantro ${CMAKE_CURRENT_BINARY_DIR}/include/)
+
 # Build setup
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_CURRENT_SOURCE_DIR}/cmake/Modules/")
 set(CMAKE_BUILD_TYPE "Release")
