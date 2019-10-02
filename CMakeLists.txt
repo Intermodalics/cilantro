@@ -3,7 +3,7 @@ project(cilantro)
 
 find_package(catkin REQUIRED)
 
-catkin_package(INCLUDE_DIRS include include/cilantro ${CMAKE_CURRENT_BINARY_DIR}/include/)
+catkin_package(INCLUDE_DIRS include include/cilantro)
 
 # Build setup
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_CURRENT_SOURCE_DIR}/cmake/Modules/")
@@ -24,7 +24,7 @@ endif()
 
 set(OTHER_INCLUDES ${EIGEN3_INCLUDE_DIRS} ${Pangolin_INCLUDE_DIRS})
 
-include_directories(include ${CMAKE_CURRENT_BINARY_DIR}/include)
+include_directories(include ${CATKIN_DEVEL_PREFIX}/include)
 include_directories(${OTHER_INCLUDES})
 
 if(_WIN_)
@@ -51,7 +51,7 @@ else()
 endif()
 
 # Configure preprocessor definitions
-configure_file("${CMAKE_CURRENT_SOURCE_DIR}/config.hpp.in" "${CMAKE_CURRENT_BINARY_DIR}/include/${PROJECT_NAME}/config.hpp")
+configure_file("${CMAKE_CURRENT_SOURCE_DIR}/config.hpp.in" "${CATKIN_DEVEL_PREFIX}/include/${PROJECT_NAME}/config.hpp")
 
 # Package config files
 file(REMOVE "${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}Targets.cmake")
@@ -75,7 +75,7 @@ if(EXPORT_${PROJECT_NAME})
 endif()
 
 # Install target
-install(FILES "${CMAKE_CURRENT_BINARY_DIR}/include/${PROJECT_NAME}/config.hpp" DESTINATION ${CMAKE_INSTALL_PREFIX}/include/${PROJECT_NAME})
+install(FILES "${CATKIN_DEVEL_PREFIX}/include/${PROJECT_NAME}/config.hpp" DESTINATION ${CMAKE_INSTALL_PREFIX}/include/${PROJECT_NAME})
 install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/include/ DESTINATION ${CMAKE_INSTALL_PREFIX}/include)
 install(TARGETS ${PROJECT_NAME} EXPORT ${PROJECT_NAME}Targets LIBRARY DESTINATION ${CMAKE_INSTALL_PREFIX}/lib ARCHIVE DESTINATION ${CMAKE_INSTALL_PREFIX}/lib)
 
