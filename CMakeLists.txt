@@ -3,7 +3,7 @@ project(cilantro)
 
 find_package(catkin REQUIRED)
 
-catkin_package(INCLUDE_DIRS include include/cilantro)
+catkin_package(INCLUDE_DIRS include include/cilantro ${CATKIN_DEVEL_PREFIX}/include)
 
 # Build setup
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_CURRENT_SOURCE_DIR}/cmake/Modules/")
