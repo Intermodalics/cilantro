@@ -5,7 +5,7 @@
   <description>The cilantro package</description>
 
   <maintainer email="info@pickit3d.com">Pick-it NV</maintainer>
-  <license>Closed</license>
+  <license>MIT</license>
 
   <buildtool_depend>catkin</buildtool_depend>
 
