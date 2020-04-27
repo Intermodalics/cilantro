@@ -3,6 +3,7 @@ project(cilantro)
 
 find_package(catkin REQUIRED)
 
+file(MAKE_DIRECTORY ${CATKIN_DEVEL_PREFIX}/include)
 catkin_package(INCLUDE_DIRS include include/cilantro ${CATKIN_DEVEL_PREFIX}/include)
 
 # Build setup
